@@ -22,21 +22,14 @@ function Navigation() {
         JoBook
       </Menu.Item>
       <Menu.Item
-        position="right"
         as={Link}
-        to="/login"
-        name="features"
-        active={activeItem === "features"}
+        to="/dashboard"
+        name="dashboard"
+        active={activeItem === "dashboard"}
         onClick={handleItemClick}
+        position="right"
       >
-        Features
-      </Menu.Item>
-      <Menu.Item
-        name="testimonials"
-        active={activeItem === "testimonials"}
-        onClick={handleItemClick}
-      >
-        Testimonials
+        Dashboard
       </Menu.Item>
       <Menu.Item
         as={Link}

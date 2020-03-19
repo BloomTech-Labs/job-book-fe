@@ -93,7 +93,6 @@ function Register() {
             onChange={handleChanges}
           />
         </Form.Field>
-        <Divider horizontal>Register</Divider>
         <Form.Field
           style={{
             display: "flex",
@@ -104,6 +103,8 @@ function Register() {
           <Button size="tiny" type="submit" primary>
             Register
           </Button>
+
+          <Divider horizontal>OR</Divider>
 
           <Button
             style={{ background: "transparent", color: "teal" }}

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Form, Checkbox, Button, Grid, Header } from "semantic-ui-react";
+import {
+  Form,
+  Checkbox,
+  Button,
+  Grid,
+  Header,
+  Divider
+} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import Styled from "styled-components";
 import Register from "./register";
@@ -69,12 +76,27 @@ function Login() {
             onChange={handleChanges}
           />
         </Form.Field>
-        <Form.Field>
-          <Button as={Link} to="/register" size="tiny">
-            Register
-          </Button>
-          <Button size="tiny" onClick={() => {}}>
+        <Form.Field
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between"
+          }}
+        >
+          <Button size="tiny" type="submit" primary>
             Login
+          </Button>
+
+          <Divider horizontal>OR</Divider>
+
+          <Button
+            style={{ background: "transparent", color: "teal" }}
+            as={Link}
+            to="/register"
+            size="tiny"
+            secondary
+          >
+            Register
           </Button>
         </Form.Field>
       </Form>
