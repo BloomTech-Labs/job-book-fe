@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   Form,
   Checkbox,
@@ -22,14 +23,18 @@ const Container = Styled.div`
 `;
 
 interface MyUser {
-  username: String;
-  password: String;
+  password: string;
+  firstName: string;
+  lastName: string;
+  email: string;
 }
 
-function Register() {
+function Register(props) {
   const [user, setUser] = useState<MyUser>({
-    username: "",
-    password: ""
+    firstName: "",
+    lastName: "",
+    password: "",
+    email: ""
   });
 
   const handleChanges = (e: any): void => {
@@ -41,7 +46,20 @@ function Register() {
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    console.log(user);
+    axios
+      .post("http://localhost:8080/register", user)
+      .then(res => {
+        setUser({
+          email: "",
+          password: "",
+          firstName: "",
+          lastName: ""
+        });
+        props.history.push("/login");
+      })
+      .catch(err => {
+        console.log("Error", err);
+      });
   };
 
   return (
@@ -58,11 +76,11 @@ function Register() {
       >
         <Header as="h1" content="JoBook" />
         <Form.Field required>
-          <label>Username</label>
+          <label>Email</label>
           <input
-            type="text"
-            placeholder="Username"
-            name="username"
+            type="email"
+            placeholder="Email"
+            name="email"
             onChange={handleChanges}
           />
         </Form.Field>
@@ -76,20 +94,20 @@ function Register() {
           />
         </Form.Field>
         <Form.Field required>
-          <label>Confirm Password</label>
+          <label>First Name</label>
           <input
-            type="password"
-            placeholder="Password"
-            name="password"
+            type="text"
+            placeholder="firstname"
+            name="firstName"
             onChange={handleChanges}
           />
         </Form.Field>
         <Form.Field required>
-          <label>Email</label>
+          <label>Last Name</label>
           <input
-            type="email"
-            placeholder="Email"
-            name="email"
+            type="text"
+            placeholder="lastname"
+            name="lastName"
             onChange={handleChanges}
           />
         </Form.Field>

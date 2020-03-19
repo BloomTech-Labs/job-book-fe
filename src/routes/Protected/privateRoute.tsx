@@ -1,7 +1,11 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-function PrivateRoute(props) {
+interface Props {
+  component: any;
+}
+
+const PrivateRoute: React.FC<Props> = props => {
   const { component: Component, ...rest } = props;
 
   return (
@@ -18,6 +22,6 @@ function PrivateRoute(props) {
       />
     </>
   );
-}
+};
 
 export default PrivateRoute;

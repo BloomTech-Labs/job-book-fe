@@ -7,7 +7,8 @@ background:black;
 color:white;
 height:40px;
 z-index:2;
-position:relative;
+bottom:0 !important;
+position:fixed !important;
 
 `;
 

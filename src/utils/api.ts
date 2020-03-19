@@ -1,14 +1,14 @@
 import axios from "axios";
 
-export function getToken(): String {
+export const getToken = () => {
   return localStorage.getItem("token");
-}
+};
 
-export function api(): void {
+export const api = () => {
   axios.create({
     baseURL: "",
     headers: {
       Authorization: getToken()
     }
   });
-}
+};

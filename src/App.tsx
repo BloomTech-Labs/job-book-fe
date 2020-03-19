@@ -5,19 +5,17 @@ import { Button } from "semantic-ui-react";
 import PrivateRoute from "./routes/Protected/privateRoute";
 import Footer from "./routes/footer";
 import Navigation from "./routes/navigation";
-import Register from "./routes/Signup/register";
-import Login from "./routes/Signup/login";
+import Register from "./routes/Authentication/register";
+import Login from "./routes/Authentication/LoginForm";
 import Dashboard from "./routes/Protected/dashboard";
+import AppWithRouterAccess from "./routes/Protected/AppWithRouterAccess";
+
+import "semantic-ui-less/semantic.less";
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/dashboard" component={Dashboard} />
-
-      {/* <PrivateRoute exact path="/dashboard" component={}/> */}
+      <AppWithRouterAccess />
       <Footer />
     </div>
   );
