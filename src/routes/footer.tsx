@@ -16,7 +16,7 @@ function Footer() {
   return (
     <>
       <FooterDiv>
-        <h1>jobbook</h1>
+        <h1>Save this Job</h1>
       </FooterDiv>
     </>
   );

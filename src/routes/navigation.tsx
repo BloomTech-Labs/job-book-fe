@@ -32,13 +32,13 @@ function Navigation() {
       <Menu.Item
         as={Link}
         to="/"
-        name="jobook"
-        active={activeItem === "JoBook"}
+        name="save-this-job"
+        active={activeItem === "Save this Job"}
         onClick={() => {
-          handleItemClick("jobook");
+          handleItemClick("save-this-job");
         }}
       >
-        JoBook
+        Save this job
       </Menu.Item>
       <Menu.Item
         as={Link}
