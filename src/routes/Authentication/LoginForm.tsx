@@ -34,7 +34,7 @@ function LoginForm() {
   });
 
   const { authService } = useOktaAuth();
-  const baseUrl = "https://dev-505664.okta.com";
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const [sessionToken, setSessionToken] = useState();
 
   const handleChanges = (e: any): void => {
@@ -70,7 +70,7 @@ function LoginForm() {
           borderRadius: "5px"
         }}
       >
-        <Header as="h1" content="JoBook" />
+        <Header as="h1" content="Save-this-Job" />
 
         <Form.Field>
           <label>Email</label>
