@@ -36,9 +36,7 @@ function Navigation() {
   }
 
   return (
-    <Menu
-      style={{ top: "0", position: "fixed", zIndex: "99999", width: "100%" }}
-    >
+    <Menu style={{ top: "0", position: "fixed", zIndex: "5", width: "100%" }}>
       <Menu.Item
         as={Link}
         to="/"

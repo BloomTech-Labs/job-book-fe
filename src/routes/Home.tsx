@@ -1,6 +1,6 @@
 import React from "react";
 import { useOktaAuth } from "okta-react-bug-fix";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import time from "../images/time.png";
 import cta from "../images/Group 1.png";
 import line from "../images/Line.png";
@@ -54,16 +54,9 @@ function Home() {
             }}
           />
           <img alt="icon" style={{ marginBottom: "4em" }} src={line} />
-          <Button
-            animated="fade"
-            style={{ background: "#08A6C9" }}
-            primary
-            size="huge"
-          >
-            <a style={{ color: "#ffff" }} href="http://localhost:3000/login">
-              <Button.Content visible>Get Started</Button.Content>
-              <Button.Content hidden>Sign-Up Now</Button.Content>
-            </a>
+          <Button animated="fade" primary size="huge" as={Link} to="/login">
+            <Button.Content visible>Get Started</Button.Content>
+            <Button.Content hidden>Sign-Up Now</Button.Content>
           </Button>
         </Container>
       </div>
@@ -179,11 +172,7 @@ function Home() {
               lets you grab and save job postings with a rating of how
               interested you are in the job.
             </p>
-            <Button
-              animated="fade"
-              style={{ background: "#08A6C9", color: "#ffff" }}
-              size="huge"
-            >
+            <Button animated="fade" primary size="huge">
               <a
                 style={{ color: "#ffff" }}
                 href="https://chrome.google.com/webstore/detail/hejmehomfdabmjbhlpajmhcjaoichkgl"
@@ -219,15 +208,9 @@ function Home() {
               many applications, interviews and offers you’ve received in one
               view.
             </p>
-            <Button
-              animated="fade"
-              style={{ background: "#08A6C9" }}
-              size="huge"
-            >
-              <a style={{ color: "#ffff" }} href="http://localhost:3000/login">
-                <Button.Content visible>Get Started</Button.Content>
-                <Button.Content hidden>Sign-Up Now</Button.Content>
-              </a>
+            <Button as={Link} to="/login" animated="fade" primary size="huge">
+              <Button.Content visible>Get Started</Button.Content>
+              <Button.Content hidden>Sign-Up Now</Button.Content>
             </Button>
           </Container>
         </Segment>
@@ -238,11 +221,7 @@ function Home() {
   const HomePageFooter = () => {
     return (
       <div>
-        <Segment
-          inverted
-          vertical
-          style={{ padding: "5em 0em", background: "#08A6C9" }}
-        >
+        <Segment inverted vertical color="blue" style={{ padding: "5em 0em" }}>
           <Container>
             <Grid divided inverted stackable>
               <Grid.Row>
