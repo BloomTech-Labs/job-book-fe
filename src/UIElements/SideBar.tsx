@@ -18,7 +18,7 @@ export default function SideBar(props) {
   const [visible, setVisible] = useState(false);
   return (
     <Sidebar.Pushable
-      style={{ height: "100%", overflowY: "hidden", minWidth: "1500px" }}
+      style={{ height: "95%", overflowY: "hidden", minWidth: "1500px" }}
     >
       <div onMouseLeave={() => setVisible(false)}>
         <Sidebar
@@ -26,7 +26,12 @@ export default function SideBar(props) {
           animation="overlay"
           icon="labeled"
           direction="left"
-          style={{ paddingTop: "100px", width: "200px", background: "#fdfdfd" }}
+          style={{
+            paddingTop: "100px",
+            overflowX: "hidden",
+            width: "200px",
+            background: "#fdfdfd"
+          }}
           onHide={() => setVisible(false)}
           vertical
           visible={visible}

@@ -5,7 +5,8 @@ import {
   getUser,
   getJobs,
   getCurrentJob,
-  updateJob
+  updateJob,
+  updateJobInColumn
 } from "../../redux/actions/index";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import store from "store";
@@ -115,7 +116,12 @@ const Dashboard = props => {
               >
                 <DragDropContext
                   onDragEnd={result =>
-                    onDragEnd(result, columns, setColumns, props.updateJob)
+                    onDragEnd(
+                      result,
+                      columns,
+                      setColumns,
+                      props.updateJobInColumn
+                    )
                   }
                 >
                   {Object.entries(columns).map(([columnId, column], index) => {
@@ -130,6 +136,7 @@ const Dashboard = props => {
                           padding: "20px 20px",
                           borderLeft: "1px solid #ece9f2",
                           height: "95vh",
+                          minHeight: "500px",
                           overflow: "auto"
                         }}
                         key={columnId}
@@ -248,7 +255,8 @@ const mapDispatchToProps = {
   getUser,
   getJobs,
   getCurrentJob,
-  updateJob
+  updateJob,
+  updateJobInColumn
 };
 
 export default withRouter(

@@ -25,7 +25,8 @@ import {
   TOGGLE_TASK,
   CLEAR_MESSAGES,
   TAGS,
-  TAG_FILTER
+  TAG_FILTER,
+  UPDATE_JOB_COLUMN_SUCCESS
 } from "../actions/index";
 import Tags from "../../UIElements/Tags";
 
@@ -181,6 +182,16 @@ export function reducer(state = initialState, action: any): object {
           ...action.payload
         },
         updateDisabled: false
+      };
+    case UPDATE_JOB_COLUMN_SUCCESS:
+      console.log("fired");
+      console.log(action.payload[0].id);
+      let jobsMinusUpdated = state.jobs.filter(
+        job => job.id != action.payload[0].id
+      );
+      return {
+        ...state,
+        jobs: [...jobsMinusUpdated, action.payload[0]]
       };
     case ADD_TASKS_LOADING:
       return {

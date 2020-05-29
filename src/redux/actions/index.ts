@@ -20,8 +20,8 @@ export const UPDATE_JOBS_LOADING = "UPDATE_JOBS_LOADING";
 export const UPDATE_JOBS_SUCCESS = "UPDATE_JOBS_SUCCESS";
 export const UPDATE_JOBS_ERROR = "UPDATE_JOBS_ERROR";
 
-export const UPDATE_JOB_COLUMN_SUCCESS = "UPDATE_JOBS_LOADING";
-export const UPDATE_JOB_COLUMN_ERROR = "UPDATE_JOBS_ERROR";
+export const UPDATE_JOB_COLUMN_SUCCESS = "UPDATE_JOB_COLUMN_SUCCESS";
+export const UPDATE_JOB_COLUMN_ERROR = "UPDATE_JOB_COLUMN_ERROR";
 
 export const ADD_TASKS_LOADING = "GET_TASKS_LOADING";
 export const ADD_TASKS_ERROR = "GET_TASKS_ERROR";
@@ -108,6 +108,29 @@ export function getCurrentJob(jobId) {
 export function updateCurrentJob(job) {
   return dispatch => {
     dispatch({ type: UPDATE_CURRENT_JOB, payload: job });
+  };
+}
+export function updateJobInColumn(jobId, job) {
+  return dispatch => {
+    api()
+      .put(`/users/updateJob/${jobId}`, job)
+      .then(res => {
+        if (res.status === 200) {
+          api()
+            .get("/users/jobs")
+            .then(res => {
+              let updatedColumn = res.data.filter(job => job.id === jobId);
+              console.log(updatedColumn);
+              dispatch({
+                type: UPDATE_JOB_COLUMN_SUCCESS,
+                payload: updatedColumn
+              });
+            });
+        }
+      })
+      .catch(error => {
+        dispatch({ type: UPDATE_JOB_COLUMN_ERROR, payload: error });
+      });
   };
 }
 export function updateJob(jobId, job) {
